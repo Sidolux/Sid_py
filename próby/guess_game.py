@@ -10,7 +10,7 @@ diff_old = 0
 print('--------------------------------- WITAJ W ZGADYWANCE -----------------------------------------')
 print('Myślę o liczbie 1-100. Spróbuj ją odgadnąć.')
 print('Powiem ci "Ciepło" jeżeli za pierwszym razem będziesz bliżej niż 10 od liczby, o której myślę.')
-print('Dodatkowo przy każdej próbie powiem Ci, czy jesteś bliżej czy dalej od mojej liczby.')
+print('Dodatkowo przy każdej próbie powiem Ci, czy jesteś bliżej czy dalej niż poprzednio.')
 print('Aby zakończyć grę napisz quit')
 print('Zaczynajmy')
 print('----------------------------------------------------------------------------------------------')
@@ -41,6 +41,8 @@ while not guess == number:  # play until player guesses the number
             print('Cieplej')
         elif diff_current > diff_old:
             print('Zimniej')
+        else:
+            print('Jesteś tak samo blisko')
     diff_old = diff_current  # store old difference
     guess_count += 1  # increment guess count
 print('KONIEC GRY')
