@@ -6,15 +6,26 @@ number = randint(1, 100)  # generate number 1-100
 guess = None
 guess_count = 1
 diff_old = 0
-print(number)
+##print(number) # for debug only
+print('--------------------------------- WITAJ W ZGADYWANCE -----------------------------------------')
+print('Myślę o liczbie 1-100. Spróbuj ją odgadnąć.')
+print('Powiem ci "Ciepło" jeżeli za pierwszym razem będziesz bliżej niż 10 od liczby, o której myślę.')
+print('Dodatkowo przy każdej próbie powiem Ci, czy jesteś bliżej czy dalej od mojej liczby.')
+print('Aby zakończyć grę napisz quit')
+print('Zaczynajmy')
+print('----------------------------------------------------------------------------------------------')
 # Main game loop
 while not guess == number:  # play until player guesses the number
+    usr_input = input('Podaj liczbę całkowitą 1-100: ')
     try:
-        guess = int(input('Podaj liczbę 1-100: '))  # get player input
+        guess = int(usr_input)  # get player input
     except:
-        print('To nie jest liczba')  # check if player input is number
+        if str(usr_input).lower() == 'quit':
+            break
+        print('To nie jest liczba całkowita')  # check if player input is number
         continue
     if guess == number:
+        print(f'Gratuluję, zgadłeś w {guess_count} próbach!!!')  # Show congratulations with guesses count
         break
     if guess < 1 or guess > 100:  # check if player input is in range (1-100)
         print('Podałeś liczbę spoza zakresu')
@@ -32,4 +43,4 @@ while not guess == number:  # play until player guesses the number
             print('Zimniej')
     diff_old = diff_current  # store old difference
     guess_count += 1  # increment guess count
-print(f'Gratuluję, zgadłeś w {guess_count} próbach!!!')  # Show congratulations with guesses count
+print('KONIEC GRY')
